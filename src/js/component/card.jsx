@@ -6,7 +6,8 @@ import Card from 'react-bootstrap/Card';
 
 export const CardTemplate = () => {
   return (
-    <Card style={{ width: '18rem' }}>
+  <div className="card">
+    <Card style={{ width: '15rem' }}>
       <Card.Img variant="top" src="https://sportshub.cbsistatic.com/i/2021/08/04/97a6643b-074d-41fc-a756-919e5923a792/the-simpsons-fans-celebrate-homer-simpson-65th-birthday-1268026.jpg" />
       <Card.Body>
         <Card.Title>Luke Skywalker</Card.Title>
@@ -19,6 +20,7 @@ export const CardTemplate = () => {
         <Button variant="primary">❤️</Button>
       </Card.Body>
     </Card>
+  </div>
   );
 }
 

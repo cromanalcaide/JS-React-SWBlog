@@ -1,3 +1,38 @@
 /* 
     General Styles
 */
+
+.navAlign {
+    display: flex;
+    padding-left: 75px;
+    padding-right: 75px;
+}
+
+.container {
+    display: flex;
+
+}
+
+hr {
+    color: red;
+}
+
+.profData {
+    text-align: center;
+    color: red;
+}
+
+
+.scrolling-wrapper {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    padding: 10px;
+    scroll-margin-right: 20px;
+    scroll-snap-type: x mandatory;
+}
+
+.card {
+    display: inline-block;
+    scroll-margin-right: 20px;
+  }
