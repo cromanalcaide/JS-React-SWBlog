@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 
 import { Context } from "../store/appContext";
+import { Card } from "../component/card.jsx";
 
 import "../../styles/demo.css";
 
@@ -17,6 +18,7 @@ export const Demo = () => {
 							key={index}
 							className="list-group-item d-flex justify-content-between"
 							style={{ background: item.background }}>
+							{/* <CardTemplate></CardTemplate> */}
 							<Link to={"/single/" + index}>
 								<span>Link to: {item.title}</span>
 							</Link>
