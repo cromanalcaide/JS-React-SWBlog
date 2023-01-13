@@ -2,7 +2,7 @@ import React from "react";
 import { Row } from "react-bootstrap";
 import rigoImage from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
-import { CardTemplate } from "../component/card.jsx";
+import { CardTemplate } from "../component/cards/card-character.jsx";
 import { InfoDetail } from "../component/info-detail.jsx";
 
 export const Home = () => (

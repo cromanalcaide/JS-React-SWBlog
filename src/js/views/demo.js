@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 
 import { Context } from "../store/appContext";
-import { Card } from "../component/card.jsx";
+import { Card } from "../component/cards/card-character.jsx";
 import { InfoDetail } from "../component/info-detail.jsx";
 
 import "../../styles/demo.css";
