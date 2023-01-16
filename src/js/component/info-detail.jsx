@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState, useContext, useEffect } from "react";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Image } from "react-bootstrap";
+import { Context } from "../store/appContext.js"
 
 
 export const InfoDetail = () => {
+    const {store, actions} = useContext(Context)
+    
     return (
     <div>
         <div className="container">

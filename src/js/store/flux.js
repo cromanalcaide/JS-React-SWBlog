@@ -1,43 +1,53 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
+	// almacén
 		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
+		// almacenamos datos/variables ~ con un useState (pq hay que inicializarlad)
+		jedi: [],
+		jediDetail: [],
+		planets: [],
+		vehicles: [],
+		favorites: []
 		},
+	// proveedores - los llamas con fetch
 		actions: {
-			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
+			// function: () => {function}, otra function...
+			fetchJedi: () => {
+				fetch('https://www.swapi.tech/api/people', {
+						method: "GET",
+						headers: {"Content-Type": "application/json"}
+						})
+					.then((response) => response.json())
+					.then((response) => {setStore({jedi: response.results})
+						for (let i = 1; i < response.results.length; i++) {
+								fetch('https://www.swapi.tech/api/people/' + i)
+								.then((response) => response.json())
+								.then((response) => setStore({jediDetail: [...getStore().jediDetail, response.result.properties]}))
+								.catch((error) => console.log("error fatal" + error))
+						}}
+					)
+					.catch((error) => console.log("error fatal" + error))
+					console.log(getStore().jediDetail);
 			},
-			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
-			},
-			changeColor: (index, color) => {
-				//get the store
-				const store = getStore();
+		
 
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
 
-				//reset the global store
-				setStore({ demo: demo });
-			}
+			// fetchJediDetail: async() => {
+			// 	console.log("Hola mundo")
+			// 	// getActions().fetchJedi() // te permite acceder a otras funciones dentro de flux.js
+			// 	const store = await getStore().jedi // embellecer el código
+			// 	console.log(store.jedi)
+			// 	for (let i = 1; i < store.length; i++) {
+			// 		// console.log(i)
+			// 		await fetch('https://www.swapi.tech/api/people/' + i)
+			// 		const response = await response.json()
+			// 		const data = await setStore({jediDetail: response.result})
+			// 		// .then((response) => response.json())
+			// 		// .then((response) => setStore({jediDetail: response.result}))
+			// 		// .catch((error) => console.log("error fatal" + error))
+			// 	}
+			// }
+
 		}
 	};
 };
