@@ -8,31 +8,36 @@ import { Link } from "react-router-dom";
 
 export const CardCharacter = () => {
   const {store, actions} = useContext(Context)
-  // console.log(store.jedi.name) --> Me da undefined
+  // 
 
   return (
   <>
-  {store.jedi.map((jediInfo) => (
-    <div className="card">
-        <Card style={{ width: '15rem' }}>
-          <Card.Img variant="top" src="https://sportshub.cbsistatic.com/i/2021/08/04/97a6643b-074d-41fc-a756-919e5923a792/the-simpsons-fans-celebrate-homer-simpson-65th-birthday-1268026.jpg" />
-          <Card.Body>
-            {/* <Card.Title>{store.jediDetail.result.name}</Card.Title> */}
-            <Card.Title>Luke</Card.Title>
-            <Card.Text>
-            Gender: <br/>
-            Hair color: <br/>
-            Eye color:
-            </Card.Text>
-            <Link to="/demo">
-              <Button variant="primary">Go somewhere</Button>
-            </Link>
-            <Button variant="primary">❤️</Button>
-          </Card.Body>
-        </Card>
-    </div>
-  ))}
-  </>
+      {store.jedi.map((jediInfo, index) => (
+        <div className="card col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+          <img className="card-img-top" alt="some-image"
+            src={
+              "https://starwars-visualguide.com/assets/img/characters/" +
+              (index + 1) +
+              ".jpg"
+            }
+          />
+          <div className="card-body">
+            <h5 className="card-title">{jediInfo.name}</h5>
+            <p className="card-text">
+              Gender: {jediInfo.gender} <br />
+              Hair color: {jediInfo.hair_color} <br />
+              Eye color: {jediInfo.eye_color}
+            </p>
+            <a href="#" className="btn btn-primary">
+              Go somewhere
+            </a>
+            <a href="#" className="btn btn-primary">
+              ❤️
+            </a>
+          </div>
+        </div>
+      ))}
+    </>
   );
 }
 
